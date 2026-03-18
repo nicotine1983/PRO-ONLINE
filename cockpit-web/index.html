@@ -1,18 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>PRO ONLINE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRO ONLINE - Cockpit</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <h1>PRO ONLINE 🚀</h1>
-  <button onclick="test()">Test API</button>
+  <header class="topbar">
+    <div>
+      <h1>PRO ONLINE</h1>
+      <p class="subtitle">Cockpit exploitation</p>
+    </div>
+    <div class="status-box">
+      <span id="api-status-dot" class="dot offline"></span>
+      <span id="api-status-text">API non testée</span>
+      <button id="refresh-btn">Tester API</button>
+    </div>
+  </header>
 
-  <script>
-    function test() {
-      fetch('https://api.pro.online/api/health')
-        .then(r => r.json())
-        .then(data => alert(JSON.stringify(data)))
-    }
-  </script>
+  <main class="layout">
+    <aside class="sidebar">
+      <nav>
+        <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+        <button class="nav-btn" data-section="missions">Missions</button>
+        <button class="nav-btn" data-section="planning">Planning</button>
+        <button class="nav-btn" data-section="stock">Stock</button>
+        <button class="nav-btn" data-section="logistique">Logistique</button>
+      </nav>
+    </aside>
+
+    <section class="content">
+      <section id="dashboard" class="panel active">
+        <h2>Vue d’ensemble</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Missions en cours</h3>
+            <p class="metric" id="metric-missions">3</p>
+          </div>
+          <div class="card">
+            <h3>Conflits stock</h3>
+            <p class="metric" id="metric-conflicts">1</p>
+          </div>
+          <div class="card">
+            <h3>Transports actifs</h3>
+            <p class="metric" id="metric-transports">2</p>
+          </div>
+          <div class="card">
+            <h3>Statut API</h3>
+            <p class="metric small" id="metric-api">Inconnu</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card large">
+            <h3>Activité du jour</h3>
+            <ul class="timeline">
+              <li><strong>08:00</strong> — Départ mission MISSION-MANU-004</li>
+              <li><strong>09:15</strong> — Contrôle matériel validé</li>
+              <li><strong>10:00</strong> — API connectée à Render</li>
+              <li><strong>11:30</strong> — Transport fournisseur en attente</li>
+            </ul>
+          </div>
+
+          <div class="card large">
+            <h3>Actions rapides</h3>
+            <div class="actions">
+              <button onclick="alert('Créer mission - à brancher')">Créer mission</button>
+              <button onclick="alert('Planning - à brancher')">Ouvrir planning</button>
+              <button onclick="alert('Stock - à brancher')">Voir stock</button>
+              <button onclick="alert('PDF - à brancher')">Bons PDF</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="missions" class="panel">
+        <h2>Missions</h2>
+        <div class="table-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Client</th>
+                <th>Statut</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MISSION-MANU-004</td>
+                <td>Client A</td>
+                <td><span class="badge green">EN COURS</span></td>
+                <td>18/03/2026</td>
+              </tr>
+              <tr>
+                <td>MISSION-MANU-005</td>
+                <td>Client B</td>
+                <td><span class="badge orange">PLANIFIÉE</span></td>
+                <td>19/03/2026</td>
+              </tr>
+              <tr>
+                <td>MISSION-MANU-006</td>
+                <td>Client C</td>
+                <td><span class="badge red">BLOQUÉE</span></td>
+                <td>20/03/2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="planning" class="panel">
+        <h2>Planning exploitation</h2>
+        <div class="card large">
+          <div class="planning-grid">
+            <div class="planning-col">
+              <h4>Lundi</h4>
+              <div class="planning-item">MISSION-MANU-004</div>
+            </div>
+            <div class="planning-col">
+              <h4>Mardi</h4>
+              <div class="planning-item">MISSION-MANU-005</div>
+            </div>
+            <div class="planning-col">
+              <h4>Mercredi</h4>
+              <div class="planning-item blocked">MISSION-MANU-006</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stock" class="panel">
+        <h2>Stock</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Rouleurs fixes</h3>
+            <p class="metric small">8 disponibles</p>
+          </div>
+          <div class="card">
+            <h3>Barres de liaison</h3>
+            <p class="metric small">4 disponibles</p>
+          </div>
+          <div class="card">
+            <h3>Diables jumelés</h3>
+            <p class="metric small">2 disponibles</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="logistique" class="panel">
+        <h2>Logistique</h2>
+        <div class="card large">
+          <ul class="timeline">
+            <li><strong>Commande fournisseur</strong> — validée</li>
+            <li><strong>Transport</strong> — en cours</li>
+            <li><strong>Livraison</strong> — prévue à 14:00</li>
+            <li><strong>Retour matériel</strong> — demain 08:00</li>
+          </ul>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
 </body>
 </html>

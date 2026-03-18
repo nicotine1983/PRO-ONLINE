@@ -50,6 +50,53 @@ app.get("/api/timeline", (req, res) => {
   ]);
 });
       client: "Bouygues",
+       app.get("/api/map", (req, res) => {
+  res.json({
+    chantier: {
+      nom: "Chantier Eiffage",
+      lat: 44.8378,
+      lng: -0.5792
+    },
+    grue: {
+      nom: "LTM 1200",
+      lat: 44.8384,
+      lng: -0.5785,
+      statut: "EN_POSTE"
+    },
+    convoi: {
+      nom: "Convoi exceptionnel",
+      lat: 44.8369,
+      lng: -0.581,
+      statut: "EN_APPROCHE"
+    },
+    zoneLevage: [
+      [44.8381, -0.5790],
+      [44.8381, -0.5783],
+      [44.8375, -0.5783],
+      [44.8375, -0.5790]
+    ]
+  });
+});
+
+app.get("/api/alerts", (req, res) => {
+  res.json([
+    {
+      type: "SURCHARGE",
+      niveau: "CRITIQUE",
+      message: "Charge proche de la limite sur la mission Levage charpente"
+    },
+    {
+      type: "CONFLIT_PLANNING",
+      niveau: "MOYEN",
+      message: "Chevauchement détecté entre MISSION-MANU-004 et MISSION-MANU-005"
+    },
+    {
+      type: "SECURITE",
+      niveau: "IMPORTANT",
+      message: "Zone de levage à baliser avant reprise des opérations"
+    }
+  ]);
+}); 
     }
   ]);
 });

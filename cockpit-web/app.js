@@ -47,6 +47,7 @@ refreshBtn.addEventListener("click", testApi);
 window.addEventListener("load", () => {
   testApi();
   loadMissions();
+  loadTimeline();
 });
 
 async function loadMissions() {

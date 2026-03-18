@@ -1,4 +1,4 @@
-const API_URL = "https://pro-online.onrender.com";
+const API_URL = "https://api.pro-online.fr";
 
 const sections = document.querySelectorAll(".panel");
 const navButtons = document.querySelectorAll(".nav-btn");

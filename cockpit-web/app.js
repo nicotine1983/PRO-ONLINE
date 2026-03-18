@@ -45,3 +45,25 @@ const response = await fetch(`${API_URL}/api/health`);
 
 refreshBtn.addEventListener("click", testApi);
 window.addEventListener("load", testApi);
+
+async function loadMissions() {
+  const res = await fetch(`${API_URL}/api/missions`);
+  const missions = await res.json();
+
+  const container = document.getElementById("missions-list");
+  container.innerHTML = "";
+
+  missions.forEach((m) => {
+    const div = document.createElement("div");
+    div.className = "card";
+
+    div.innerHTML = `
+      <h3>${m.nom}</h3>
+      <p>Client: ${m.client}</p>
+      <p>Grue: ${m.grue}</p>
+      <p>Statut: ${m.statut}</p>
+    `;
+
+    container.appendChild(div);
+  });
+}

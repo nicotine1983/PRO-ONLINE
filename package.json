@@ -1,0 +1,9 @@
+{
+  "name": "pro-online",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo build ok",
+    "start:prod": "node index.js"
+  }
+}

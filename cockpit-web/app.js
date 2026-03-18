@@ -1,4 +1,4 @@
-;const API_URL = "https://pro-online.onrender.com";
+const API_URL = "https://pro-online.onrender.com";
 
 const sections = document.querySelectorAll(".panel");
 const navButtons = document.querySelectorAll(".nav-btn");
@@ -25,7 +25,7 @@ async function testApi() {
   apiDot.classList.add("offline");
 
   try {
-    const response = await fetch(`${API_URL}/api/health`);
+const response = await fetch(`${API_URL}/api/health`);
     const data = await response.json();
 
     if (data.status === "OK") {

@@ -44,7 +44,10 @@ const response = await fetch(`${API_URL}/api/health`);
 }
 
 refreshBtn.addEventListener("click", testApi);
-window.addEventListener("load", testApi);
+window.addEventListener("load", () => {
+  testApi();
+  loadMissions();
+});
 
 async function loadMissions() {
   const res = await fetch(`${API_URL}/api/missions`);

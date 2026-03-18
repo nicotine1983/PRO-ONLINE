@@ -52,6 +52,48 @@ body {
   background: #e74c3c;
 }
 
+#map-view {
+  min-height: 320px;
+  border-radius: 12px;
+  background: #101722;
+  border: 1px solid #2a3040;
+  padding: 16px;
+}
+
+.map-row {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: #171c26;
+  border-radius: 10px;
+}
+
+.zone-box {
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px dashed #4b5563;
+  border-radius: 10px;
+}
+
+.alert-card {
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #2a3040;
+  background: #171c26;
+}
+
+.alert-critique {
+  border-left: 4px solid #ef4444;
+}
+
+.alert-moyen {
+  border-left: 4px solid #f59e0b;
+}
+
+.alert-important {
+  border-left: 4px solid #3b82f6;
+}
+
 #refresh-btn {
   background: #2563eb;
   color: white;

@@ -70,3 +70,21 @@ async function loadMissions() {
     container.appendChild(div);
   });
 }
+async function loadTimeline() {
+  const res = await fetch(`${API_URL}/api/timeline`);
+  const data = await res.json();
+
+  const container = document.getElementById("timeline");
+  container.innerHTML = "";
+
+  data.forEach((item) => {
+    const div = document.createElement("div");
+    div.className = "timeline-item";
+
+    div.innerHTML = `
+      <strong>${item.step}</strong> — ${item.status}
+    `;
+
+    container.appendChild(div);
+  });
+}

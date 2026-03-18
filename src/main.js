@@ -1,24 +1,27 @@
-const express = require('express');
+const express = require("express");
+const cors = require("cors");
+
 const app = express();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
-  }
-  next();
+app.use(cors({
+  origin: [
+    "https://pro-online-2.onrender.com",
+    "https://pro-online.fr",
+    "https://www.pro-online.fr"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
+app.get("/", (req, res) => {
+  res.send("API running");
 });
 
-app.get('/', (req, res) => {
-  res.send('API running');
+app.get("/api/health", (req, res) => {
+  res.json({ status: "OK", app: "PRO ONLINE" });
 });
 
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', app: 'PRO ONLINE' });
-});
-
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

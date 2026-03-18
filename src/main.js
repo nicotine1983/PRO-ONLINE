@@ -40,6 +40,15 @@ app.get("/api/missions", (req, res) => {
       nom: "Pose clim",
       statut: "PREPARATION",
       grue: "MK88",
+      
+app.get("/api/timeline", (req, res) => {
+  res.json([
+    { step: "Commande fournisseur", status: "OK" },
+    { step: "Transport", status: "EN_COURS" },
+    { step: "Livraison", status: "14:00" },
+    { step: "Retour matériel", status: "Demain 08:00" }
+  ]);
+});
       client: "Bouygues",
     }
   ]);

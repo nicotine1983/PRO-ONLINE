@@ -48,6 +48,9 @@ window.addEventListener("load", () => {
   testApi();
   loadMissions();
   loadTimeline();
+  loadMap();
+  loadAlerts();
+});
 });
 
 async function loadMissions() {

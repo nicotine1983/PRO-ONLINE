@@ -25,3 +25,22 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+app.get("/api/missions", (req, res) => {
+  res.json([
+    {
+      id: 1,
+      nom: "Levage charpente",
+      statut: "EN_COURS",
+      grue: "LTM 1200",
+      client: "Eiffage",
+    },
+    {
+      id: 2,
+      nom: "Pose clim",
+      statut: "PREPARATION",
+      grue: "MK88",
+      client: "Bouygues",
+    }
+  ]);
+});

@@ -2,28 +2,11 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-
-app.use(cors({
-  origin: [
-    "https://pro-online-2.onrender.com",
-    "https://pro-online.fr",
-    "https://www.pro-online.fr"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
-
-app.get("/", (req, res) => {
-  res.send("API running");
-});
+app.use(cors());
+app.use(express.json());
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "OK", app: "PRO ONLINE" });
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
 });
 
 app.get("/api/missions", (req, res) => {
@@ -40,7 +23,11 @@ app.get("/api/missions", (req, res) => {
       nom: "Pose clim",
       statut: "PREPARATION",
       grue: "MK88",
-      
+      client: "Bouygues",
+    }
+  ]);
+});
+
 app.get("/api/timeline", (req, res) => {
   res.json([
     { step: "Commande fournisseur", status: "OK" },
@@ -49,8 +36,8 @@ app.get("/api/timeline", (req, res) => {
     { step: "Retour matériel", status: "Demain 08:00" }
   ]);
 });
-      client: "Bouygues",
-       app.get("/api/map", (req, res) => {
+
+app.get("/api/map", (req, res) => {
   res.json({
     chantier: {
       nom: "Chantier Eiffage",
@@ -83,18 +70,26 @@ app.get("/api/alerts", (req, res) => {
     {
       type: "SURCHARGE",
       niveau: "CRITIQUE",
-      message: "Charge proche de la limite sur la mission Levage charpente"
+      message: "Charge proche limite"
     },
     {
       type: "CONFLIT_PLANNING",
       niveau: "MOYEN",
-      message: "Chevauchement détecté entre MISSION-MANU-004 et MISSION-MANU-005"
+      message: "Chevauchement missions"
     },
     {
       type: "SECURITE",
       niveau: "IMPORTANT",
-      message: "Zone de levage à baliser avant reprise des opérations"
+      message: "Zone non sécurisée"
     }
+  ]);
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("Server running on port " + PORT);
+});
   ]);
 }); 
     }

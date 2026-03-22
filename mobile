@@ -1,1 +1,19 @@
-
+mobile/
+├── app/
+├── src/
+│   ├── components/
+│   ├── screens/
+│   ├── navigation/
+│   ├── services/
+│   ├── hooks/
+│   ├── store/
+│   ├── utils/
+│   └── types/
+├── assets/
+│   ├── images/
+│   └── icons/
+├── .env
+├── app.json
+├── package.json
+├── babel.config.js
+└── tsconfig.json

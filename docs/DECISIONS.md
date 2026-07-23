@@ -38,6 +38,14 @@ Ce document consigne les choix validés. Une idée, une ancienne conversation ou
 - **Décision :** les changements d’agent sont réalisés sur une branche dédiée puis revus dans une pull request avant fusion dans `main`.
 - **Conséquence :** ne pas pousser directement une évolution fonctionnelle sur `main`.
 
+## D-006 — Maintenir un index central des applications
+
+- **Statut :** validée
+- **Date :** 23 juillet 2026
+- **Décision :** le dossier `CREATIONS-APPLICATIONS/` recense les applications, leur état réel, leurs risques et leur prochaine action.
+- **Conséquence :** chaque nouvelle application indépendante doit recevoir une fiche dans cet index et, dès que nécessaire, son propre dépôt GitHub.
+- **Limite actuelle :** le compte connecté ne dispose pour l’instant que du dépôt `nicotine1983/PRO-ONLINE` ; l’index est donc hébergé provisoirement dans ce dépôt.
+
 ## Décisions encore ouvertes
 
 Les sujets suivants ne sont **pas encore décidés** :

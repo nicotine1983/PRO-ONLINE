@@ -4,6 +4,15 @@ Prototype d’application dans le domaine du **levage, de la manutention et du t
 
 > **Attention :** le dépôt est actuellement un prototype. Les données affichées sont des exemples et ne doivent pas être utilisées pour décider d’un levage, d’un calage, d’un élingage, d’une capacité ou d’un transport réel.
 
+## Portefeuille des créations d’applications
+
+Le dossier [`CREATIONS-APPLICATIONS/`](CREATIONS-APPLICATIONS/) sert d’index central pour organiser les applications, leur état réel, leurs risques et leurs prochaines tâches.
+
+- [Index des applications](CREATIONS-APPLICATIONS/README.md)
+- [Fiche PRO-ONLINE](CREATIONS-APPLICATIONS/01-PRO-ONLINE.md)
+- [Modèle pour une nouvelle application](CREATIONS-APPLICATIONS/MODELE-PROJET.md)
+- [Configuration de la rubrique Projets de ChatGPT](CREATIONS-APPLICATIONS/PROJET-CHATGPT.md)
+
 ## État actuel
 
 - API Node.js / Express : `src/main.js`
